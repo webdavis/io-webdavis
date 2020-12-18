@@ -4,13 +4,13 @@ This repo tracks the build of my personal website webdavis.io. The idea of this 
 multiple versions of this site using a different Python webframework for each version, and
 track them all in this repo.
 
-I'm not really sure if it's a good idea to track all of the builds in one repo, so that
-being said, this project may split into many different repos as some point.
+I'm not really sure if it's a good idea to track the builds wf all web frameworks in one
+repo, so that being said, this project may split into many different repos as some point.
 :man_shrugging:
 
 ## Python Web Frameworks
 
-For a list of all of the Python web frameworks that I plan to use, see [webframeworks.io](./webframeworks.md).
+For a list of Python web frameworks that I plan to use, see [webframeworks.io](./webframeworks.md).
 
 # Getting started
 
@@ -42,8 +42,7 @@ Now clone the pyenv project using `git`:
 $ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 ```
 
-On Ubuntu 20.04+ systems, run the following commands to add the `pyenv` executable to your
-`$PATH`:
+On Ubuntu 20.04+ systems, run the following commands to add `pyenv` to your `$PATH`:
 
 ```bash
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
@@ -56,8 +55,8 @@ Then source your `~/.bashrc`, like so:
 $ source ~/.bashrc
 ```
 
-Instruct pyenv to switch to the version of Python tracked in the
-`io-webdavis/.python-version` file:
+Instruct pyenv to switch to the version of Python tracked in
+`io-webdavis/.python-version`:
 
 ```bash
 eval "$(pyenv init -)"
@@ -79,8 +78,8 @@ To add `poetry` to your current shells `$PATH` run:
 $ source $HOME/.poetry/env
 ```
 
-Poetry uses the `pyproject.toml` and `poetry.lock` files to track dependencies. Install
-the project dependencies, like so:
+Poetry uses `pyproject.toml` and `poetry.lock` to track dependencies. Install the project
+dependencies, like so:
 
 ```bash
 $ cd home-it
