@@ -41,7 +41,7 @@ Then source your `~/.bashrc`, like so:
 $ source ~/.bashrc
 ```
 
-Instruct pyenv to switch to the version of Python tracked in [`.python-version`](../../.python-version):
+Instruct pyenv to switch to the version of Python tracked in [`.python-version`](../.python-version):
 
 ```bash
 eval "$(pyenv init -)"
@@ -62,7 +62,7 @@ To make the `poetry` executable availabe on your current shells `$PATH`, run:
 $ source $HOME/.poetry/env
 ```
 
-Poetry uses the [`pyproject.toml`](../../pyproject.toml) and [`poetry.lock`](../../poetry.lock)
+Poetry uses the [`pyproject.toml`](../pyproject.toml) and [`poetry.lock`](../poetry.lock)
 files to track dependencies. Install the project dependencies, like so:
 
 ```bash
