@@ -4,7 +4,7 @@ This repo tracks the build of my personal website webdavis.io. The idea of this 
 multiple versions of this site using a different Python web framework for each version, and
 track them all in this repo.
 
-I'm not really sure if it's a good idea to track the builds wf all web frameworks in one
+I'm not really sure if it's a good idea to track the builds of all web frameworks in one
 repo, so that being said, this project may split into many different repos as some point.
 :man_shrugging:
 
