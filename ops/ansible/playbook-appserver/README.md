@@ -86,21 +86,24 @@ $ ssh-add ~/.ssh/id_rsa_io-webdavis
 
 ### Test the connection via an Ansible ad-hoc command
 
-Ping the managed node (in this case a Raspberry Pi 4B) to verify the connection:
+Ping a managed node (in this case a Raspberry Pi 4B) to verify the connection:
 
 ```bash
 $ poetry run ansible atagi.netdavis.io -m ping
 ```
 
+> **Note:** see [`ansible.cfg`](./ansible.cfg) for other managed nodes.
+
 ### Bootstrapping a Disk Image
 
 This repo provides a couple of different ways to modify an official Raspberry Pi OS image. 
 
-Both of these methods will spit out a modified image into the `./output` folder.
+The following methods will spit out a modified image to the `playbook-appserver/output` folder.
 
 #### Within a Vagrant Virtual Machine
 
-Set the `user` variable in the `group_vars/all/main.yml` file to the following:
+Set the `user` variable in the
+[`group_vars/all/main.yml`](./group_vars/all/main.yml) file to the following:
 
 ```yaml
 user: vagrant
@@ -112,9 +115,10 @@ Then simply run the following command to spin up a Vagrant instance on your mana
 $ poetry run vagrant up
 ```
 
-#### On Your Host Machine
+#### On Your localhost Machine
 
-Set the `user` variable in the `group_vars/all/main.yml` file to the following:
+Set the `user` variable in the
+[`group_vars/all/main.yml`](./group_vars/all/main.yml) file to the following:
 
 ```yaml
 user: stephen
@@ -132,5 +136,5 @@ Plug a MicroSD card into your host machine. You can locate the block device usin
 Then run the following command to flash the newly modified image to your MicroSD card:
 
 ```bash
-pv output/2020-12-02-raspios-buster-armhf-lite.img | sudo dd iflag=fullblock conv=fsync of=/dev/sdb
+$ pv output/2020-12-02-raspios-buster-armhf-lite.img | sudo dd iflag=fullblock conv=fsync of=/dev/sdb
 ```
