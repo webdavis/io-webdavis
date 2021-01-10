@@ -1,0 +1,26 @@
+# vi: set filetype=ruby:
+
+Vagrant.require_version ">= 2.2.14"
+
+$timestamp_ansible_log = <<SCRIPT
+logs_dir="/vagrant/logs/ansible"
+if [[ ! -d "$logs_dir" ]]; then
+  install --directory --mode=0700 "$logs_dir"
+fi
+mv "/vagrant/ansible.log" "${logs_dir}/ansible-$(date '+%FT%H:%M:%S%z').log"
+SCRIPT
+
+Vagrant.configure("2") do |config|
+  config.vm.define "guest" do |guest|
+    guest.vm.box = "ubuntu/focal64"
+    guest.vm.box_version = "20201210.0.0"
+    guest.vm.hostname = "ubuntu.guest"
+
+    guest.vm.provision "ansible" do |ansible|
+      ansible.playbook = "bootstrap.yml"
+      ansible.inventory_path = "./hosts.ini"
+    end
+
+    guest.vm.provision 'Timestamping Ansible log', type: 'shell', inline: $timestamp_ansible_log, name: 'timestamp_ansible_log', privileged: true
+  end
+end

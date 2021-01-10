@@ -1,0 +1,32 @@
+---
+
+- name: Determine output path
+  set_fact: output_directory="{{ '/vagrant/output' if (ansible_facts['env']['SUDO_USER'] == 'vagrant') else './output' }}"
+
+- name: "Create {{ output_directory }} directory"
+  file:
+    path: "{{ output_directory }}"
+    state: directory
+
+- name: Download the operating system image
+  get_url:
+    url: "{{ image_url }}"
+    dest: "{{ output_directory }}/{{ zipped_image }}"
+  register: image_downloaded
+
+- debug:
+    msg: "Downloaded {{ zipped_image }}"
+  when: image_downloaded.changed
+
+- name: Install unzip
+  apt: "name=unzip update_cache=true cache_valid_time={{ 60 * 15 }}"
+  become: true
+
+- name: Unzip image
+  unarchive:
+    src: "{{ output_directory}}/{{ zipped_image }}"
+    dest: "{{ output_directory }}"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    remote_src: yes
+  become: true
