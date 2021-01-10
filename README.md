@@ -16,7 +16,7 @@ For a list of Python web frameworks that I plan to use, see [webframeworks.io](d
 
 To get started on this project, a few tools must be installed on your development machine.
 If this is your first time setting up a development environment for this project, then see
-the [installation instructions](docs/UBUNTU-DEV-ENVIRONMENT.md).
+the [installation instructions](docs/ubuntu-dev-environment.md).
 
 > **Note:** it's assumed that you are using an Ubuntu 20.04+ machine; though, it
 > should be easy enough to adapt the installation instructions for your OS.
