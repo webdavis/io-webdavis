@@ -52,7 +52,7 @@ Use `gdebi` to install the Vagrant `deb` package:
 $ sudo gdebi vagrant_2.2.14_x86_64.deb
 ```
 
-## pyevn
+### pyevn
 
 Instruct pyenv to switch to the version of Python tracked in
 [`.python-version`](../../../.python-version), in the project root:
@@ -61,7 +61,7 @@ Instruct pyenv to switch to the version of Python tracked in
 $ eval "$(pyenv init -)"
 ```
 
-## Poetry
+### Poetry
 
 Install the Python dependencies with [Poetry](https://python-poetry.org/):
 
@@ -123,10 +123,10 @@ user: stephen
 Then run the following command:
 
 ```bash
-$ poetry run ./ansible-playbook-wrapper localhost -m ping
+$ poetry run ./ansible-playbook-wrapper localhost bootstrap.yml
 ```
 
-### Flashing the Image
+## Flashing the Image
 
 Plug a MicroSD card into your host machine. You can locate the block device using `lsblk`.
 Then run the following command to flash the newly modified image to your MicroSD card:

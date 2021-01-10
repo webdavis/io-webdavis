@@ -22,5 +22,5 @@
   gather_facts: true
   tasks:
     - import_role: name=setup_disk_image
-    - import_role: name=base
     - import_role: name=firmware
+    - import_role: name=base

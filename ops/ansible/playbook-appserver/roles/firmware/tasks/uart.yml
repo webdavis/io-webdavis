@@ -1,6 +1,6 @@
 ---
 
-- name: Enable Mini UART on GPIO Pins 14 (TX) and 15 (RX)
+- name: Enable Mini UART on GPIO pins 14 (Tx) and 15 (Rx)
   lineinfile:
     path: /mnt/boot/config.txt
     line: enable_uart=1
@@ -8,13 +8,13 @@
 
 # This switches the PL011 UART from the bluetooth controller to GPIO pins 14 (Tx) and 15
 # (Rx), which disables bluetooth on the board.
-- name: Enable the PL011 UART on GPIO Pins 14 (Tx) and 15 (Rx)
+- name: Enable PL011 UART on GPIO pins 14 (Tx) and 15 (Rx)
   lineinfile:
     path: /mnt/boot/config.txt
     line: btoverlay=disable-bt
   when: uart.type == 'PL011'
 
-- name: Disable the Bluetooth Modems
+- name: Disable the bluetooth Modems
   service:
     name: hciuart
     enabled: no
