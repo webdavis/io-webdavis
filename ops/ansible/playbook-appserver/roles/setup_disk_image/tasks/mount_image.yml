@@ -1,0 +1,26 @@
+---
+
+- name: Find unused loop device 
+  command: "losetup --find"
+  register: loop_device
+
+- name: Map partitions
+  command: "losetup -P {{ loop_device.stdout }} {{ output_directory}}/{{ image_file }}"
+  become: true
+
+- name: Mount root filesystem
+  ansible.posix.mount:
+    path: /mnt
+    src: "{{ loop_device.stdout }}p2"
+    fstype: ext4
+    state: mounted
+  become: true
+
+- name: Mount boot drive
+  ansible.posix.mount:
+    path: /mnt/boot
+    src: "{{ loop_device.stdout }}p1"
+    fstype: vfat
+    state: mounted
+  become: true
+  notify: Unmount boot drive

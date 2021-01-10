@@ -1,0 +1,20 @@
+---
+#
+# The variables in this file are applicable to all hosts groups.
+#
+
+image_url: https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2020-12-04/2020-12-02-raspios-buster-armhf-lite.zip
+
+zipped_image: "{{ image_url | basename }}"
+image_version: "{{ zipped_image |  splitext | first }}"
+image_file: "{{ image_version }}.img"
+
+ssh_key_stephen:
+  public: "{{ vault_ssh_public_key_stephen }}"
+  private: "{{ vault_ssh_private_key_stephen }}"
+
+uart:
+  enabled: true
+  type: mini
+
+user: vagrant

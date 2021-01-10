@@ -12,8 +12,8 @@ However, some build dependencies are required for pyenv to install versions of P
 Ubuntu 20.04+ systems, they can be installed as follows:
 
 ```bash
-sudo apt update
-sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+$ sudo apt update
+$ sudo apt install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 ```
 
 Install `git`:
@@ -31,8 +31,8 @@ $ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 Run the following commands to add `pyenv` to your shell environments `$PATH`:
 
 ```bash
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
 ```
 
 Then source your `~/.bashrc`, like so:
@@ -41,10 +41,16 @@ Then source your `~/.bashrc`, like so:
 $ source ~/.bashrc
 ```
 
-Instruct pyenv to switch to the version of Python tracked in [`.python-version`](../.python-version):
+Install the version of Python tracked in [`.python-version`](../.python-version):
 
 ```bash
-eval "$(pyenv init -)"
+$ cat .python-version | pyenv install
+```
+
+Now switch to that version, like so:
+
+```bash
+$ eval "$(pyenv init -)"
 ```
 
 ## Poetry
@@ -59,14 +65,13 @@ $ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-po
 To make the `poetry` executable availabe on your current shells `$PATH`, run:
 
 ```bash
-$ source $HOME/.poetry/env
+$ source ~/.poetry/env
 ```
 
 Poetry uses the [`pyproject.toml`](../pyproject.toml) and [`poetry.lock`](../poetry.lock)
 files to track dependencies. Install the project dependencies, like so:
 
 ```bash
-$ cd io-webdavis
 $ poetry install
 ```
 

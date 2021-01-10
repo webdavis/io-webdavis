@@ -28,7 +28,7 @@ This project uses [pyenv](https://github.com/pyenv/pyenv) to manage Python versi
 Instruct pyenv to switch to the version of Python tracked in [`.python-version`](./.python-version):
 
 ```bash
-eval "$(pyenv init -)"
+$ eval "$(pyenv init -)"
 ```
 
 ## Poetry
@@ -39,7 +39,6 @@ Poetry uses the [`pyproject.toml`](./pyproject.toml) and [`poetry.lock`](./poetr
 files to track dependencies. Install the project dependencies, like so:
 
 ```bash
-$ cd io-webdavis
 $ poetry install
 ```
 

@@ -1,0 +1,47 @@
+---
+
+# Ref: https://www.raspberrypi.org/documentation/remote-access/ssh/README.md
+- name: Enable SSH when the Pi Boots
+  copy:
+    content: ""
+    dest: '/mnt/boot/ssh'
+    group: root
+    owner: root
+    mode: u=rwx,g=rx,u=rx
+  become: true
+
+- name: Create User .ssh Directory
+  file:
+    state: directory
+    path: '/mnt/home/pi/.ssh'
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: u=rwx,g=,o=
+  become: true
+
+- name: Authorize SSH Key
+  copy:
+    content: "{{ ssh_key_stephen.public }}"
+    dest: '/mnt/home/pi/.ssh/authorized_keys'
+    group: "{{ user }}"
+    owner: "{{ user }}"
+    mode: u=rw,g=r,o=r
+  become: true
+
+- name: Copy SSH Public Key
+  copy:
+    content: "{{ ssh_key_stephen.public }}"
+    dest: '/mnt/home/pi/.ssh/id_rsa_io-webdavis.pub'
+    group: "{{ user }}"
+    owner: "{{ user }}"
+    mode: u=rw,g=r,o=r
+  become: true
+
+- name: Copy SSH Private Key
+  copy:
+    content: "{{ ssh_key_stephen.private }}"
+    dest: '/mnt/home/pi/.ssh/id_rsa_io-webdavis'
+    group: "{{ user }}"
+    owner: "{{ user }}"
+    mode: u=rw,g=r,o=r
+  become: true

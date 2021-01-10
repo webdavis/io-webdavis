@@ -1,0 +1,8 @@
+# Ignore the Python virtual environment.
+.venv/
+
+# Ignore Vim swap file.
+*.sw*
+
+# Ignore scratch directory, for trying shit out.
+scratch/
