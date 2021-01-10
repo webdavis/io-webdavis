@@ -1,0 +1,46 @@
+# vi: set filetype=ruby:
+
+Vagrant.require_version ">= 2.2.14"
+
+$ansible_local = <<-'SCRIPT'
+sudo apt-get update
+sudo apt-get install -y --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+git clone https://github.com/pyenv/pyenv.git
+echo 'export PATH="$HOME/pyenv/bin:$PATH"' >> $HOME/.bashrc
+export PATH="$HOME/pyenv/bin:$PATH"
+cp /vagrant/.python-version ./
+cat .python-version | pyenv install
+eval "$(pyenv init -)"
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+source ./.poetry/env
+cp /vagrant/poetry.lock ./
+cp /vagrant/pyproject.toml ./
+poetry install --no-root
+poetry run pip freeze >> requirements.txt
+SCRIPT
+
+$timestamp_ansible_log = <<SCRIPT
+logs_dir="/vagrant/logs/ansible"
+if [[ ! -d "$logs_dir" ]]; then
+  install --directory --mode=0700 "$logs_dir"
+fi
+mv "/vagrant/ansible.log" "${logs_dir}/ansible-$(date '+%FT%H:%M:%S%z').log"
+SCRIPT
+
+Vagrant.configure("2") do |config|
+  config.vm.define "guest" do |guest|
+    guest.vm.box = "ubuntu/focal64"
+    guest.vm.box_version = "20201210.0.0"
+    guest.vm.hostname = "ubuntu.guest"
+
+    #guest.vm.synced_folder "../../../", "/vagrant"
+    #guest.vm.provision "shell", inline: $ansible_local, privileged: false
+
+    guest.vm.provision "ansible" do |ansible|
+      ansible.playbook = "bootstrap.yml"
+      ansible.inventory_path = "./hosts.ini"
+    end
+
+    guest.vm.provision 'Timestamping Ansible log', type: 'shell', inline: $timestamp_ansible_log, name: 'timestamp_ansible_log', privileged: true
+  end
+end
