@@ -34,17 +34,22 @@ trap interrupt INT
 trap interrupt QUIT
 trap interrupt TERM
 
-#jHandle errors manually, so that we can still manage the logs if things fail.
+# Handle errors manually, so that we can still manage the logs if things fail.
 set +e
 error_code=0
 
+# Write output to both stdout and the log file.
+exec > >(tee -a "$original_log") 2>&1
+
 # Run ansible-playbook.
 if [[ $error_code -eq 0 ]]; then
-  echo "$ ansible-playbook $@" | tee --append "$original_log"
+  echo "$ ansible-playbook $@"
   ansible-playbook "$@"
   error_code=$?
-  echo -e "\n" | tee --append "$original_log"
+  echo -e "\n"
 fi
+
+exec >&1
 
 timestamp_log
 exit $error_code
