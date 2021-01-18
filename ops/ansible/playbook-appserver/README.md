@@ -1,4 +1,4 @@
-# Raspberry Pi Image Modification
+# appserver Automation
 
 This repo contains Ansible Plays that bootstrap the official Raspberry Pi OS image with the
 software required to host the webdavis.io site. These Plays are intended to be run within a
