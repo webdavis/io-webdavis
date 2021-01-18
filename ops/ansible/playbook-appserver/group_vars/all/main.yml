@@ -3,18 +3,54 @@
 # The variables in this file are applicable to all hosts groups.
 #
 
-image_url: https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2020-12-04/2020-12-02-raspios-buster-armhf-lite.zip
+image:
+  url: https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-01-12/2021-01-11-raspios-buster-armhf-lite.zip
+  checksum: https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-01-12/2021-01-11-raspios-buster-armhf-lite.zip
 
 zipped_image: "{{ image_url | basename }}"
 image_version: "{{ zipped_image |  splitext | first }}"
 image_file: "{{ image_version }}.img"
 
-ssh_key_stephen:
-  public: "{{ vault_ssh_public_key_stephen }}"
-  private: "{{ vault_ssh_private_key_stephen }}"
+account:
+  root:
+    username: root
+    password: "{{ vault_account.root.password }}"
+    description: Benevolent Dictator
+    uid_and_gid_number: 0
+    mail: root@webdavis.io
+    ssh_key:
+      public: "{{ vault_account.root.ssh_key.public }}"
+      private: "{{ vault_account.root.ssh_key.private }}"
+  localadmin:
+    username: stephen
+    password: "{{ vault_account.localadmin.password }}"
+    description: Local Admin
+    uid_and_gid_number: 1001
+    mail: localadmin@webdavis.io
+    ssh_key:
+      public: "{{ vault_account.localadmin.ssh_key.public }}"
+      private: "{{ vault_account.localadmin.ssh_key.private }}"
+
+ssh_key:
 
 uart:
   enabled: true
   type: mini
 
-user: vagrant
+go:
+  version: 1.15.6
+  checksum:
+    amd64: sha256:3918e6cc85e7eaaa6f859f1bdbaac772e7a825b0eb423c63d3ae68b21f84b844
+    armv6l: sha256:40ba9a57764e374195018ef37c38a5fbac9bbce908eab436370631a84bfc5788
+
+packer:
+  version: 1.6.6
+  checksum:
+    amd64: sha256:721d119fd70e38d6f2b4ccd8a39daf6b4d36bf5f7640036acafcaaa967b00c3b
+    arm: sha256:1cfef94b25d1e9ace52c46073718890009374c970085624c4b5d86abe1b4a8b5
+  plugin:
+    packer_builder_arm:
+      hash: 2b57acc593c9b3fe294b7f39192ed0ccd3f0ae35
+
+qemu:
+  version: 5.2.0

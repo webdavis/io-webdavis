@@ -1,4 +1,10 @@
 ---
 
-- import_tasks: uart.yml
-  when: uart.enabled == true
+# Slightly future proofing this (shrug).
+- name: Check if Raspberry Pi-Based OS
+  ansible.builtin.stat:
+    path: /boot/config.txt
+  register: rpi
+
+- ansible.builtin.import_tasks: uart.yml
+  when: rpi.stat.exists and uart.enabled | bool
