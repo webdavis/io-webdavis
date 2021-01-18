@@ -1,19 +1,39 @@
-# Python Webframeworks used in this project
+# Web Frameworks
 
-| ID | Framework | GitHub Stars | GitHub URL                            |
-|:---|-----------|--------------|---------------------------------------|
-| 1  | Django    | 54.1         | https://github.com/django/django      |
-| 2  | Flask     | 53.1         | https://github.com/pallets/flask      |
-| 3  | Fastapi   | 24.1         | https://github.com/tiangolo/fastapi   |
-| 4  | Tornado   | 19.6         | https://github.com/tornadoweb/tornado |
-| 5  | Sanic     | 14.3         | https://github.com/huge-success/sanic |
-| 6  | Dash      | 13.5         | https://github.com/plotly/dash        |
-| 7  | Falcon    |  8.1         | https://github.com/falconry/falcon    |
-| 8  | Bottle    |  7.0         | https://github.com/bottlepy/bottle    |
-| 9  | Pyramid   |  3.4         | https://github.com/Pylons/pyramid     |
-| 10 | Web2py    |  1.9         | https://github.com/web2py/web2py      |
-| 11 | Cherrpy   |  1.3         | https://github.com/cherrypy/cherrpy   |
+I'm just using this document as an idea playground.
 
+## Core Web Frameworks
+
+| ID | Framework | Language | GitHub Stars | GitHub URL                               |
+|:---|-----------|----------|--------------|------------------------------------------|
+| 1  | Django    | Python   | 54.9         | https://github.com/django/django         |
+| 2  | Flask     | Python   | 53.5         | https://github.com/pallets/flask         |
+| 3  | Gin       | Go       | 44.8         | https://github.com/gin-gonic/gin         |
+| 4  | Beego     | Go       | 25.7         | https://github.com/beego/beego           |
+| 5  | Fastapi   | Python   | 25.7         | https://github.com/tiangolo/fastapi      |
+| 6  | Tornado   | Python   | 19.7         | https://github.com/tornadoweb/tornado    |
+| 7  | Echo      | Go       | 18.9         | https://github.com/labstack/echo         |
+| 8  | Dash      | Python   | 13.7         | https://github.com/plotly/dash           |
+| 9  | Fiber     | Go       | 11.1         | https://github.com/gofiber/fiber         |
+| 10 | Falcon    | Python   |  8.2         | https://github.com/falconry/falcon       |
+| 11 | GoFrame   | Go       |  4.6         | https://github.com/gogf/gf               |
+
+## Web Frameworks - Honorable Mentions
+
+| ID | Framework   | Language | GitHub Stars | GitHub URL                               |
+|:---|-------------|----------|--------------|------------------------------------------|
+| 1  | hug         | Python   |  6.4         | https://github.com/hugapi/hug            |
+| 2  | Swagger 2.0 | Go       |  6.0         | https://github.com/go-swagger/go-swagger |
+| 3  | Pyramid     | Python   |  3.5         | https://github.com/Pylons/pyramid        |
+| 4  | Goyave      | Go       |  774         | https://github.com/System-Glitch/goyave  |
+| 5  | Gearbox     | Go       |  408         | https://github.com/gogearbox/gearbox     |
+
+## Microservice Frameworks
+
+| ID | Framework | Language | GitHub Stars | GitHub URL                               |
+|:---|-----------|----------|--------------|------------------------------------------|
+| 1  | Go kit    | Go       | 19.1         | https://github.com/go-kit/kit            |
+| 2  | Micro     | Go       |  9.5         | https://github.com/micro/micro           |
 
 ## Down the road ideas?
 
