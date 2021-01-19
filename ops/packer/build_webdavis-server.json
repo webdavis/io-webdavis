@@ -34,21 +34,17 @@
             "mountpoint": "/"
         }
         ],
-        "image_chroot_env": ["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"],
+        "image_chroot_env": ["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.local/bin"],
         "qemu_binary_source_path": "/usr/bin/qemu-arm-static",
         "qemu_binary_destination_path": "/usr/bin/qemu-arm-static"
     }],
     "provisioners": [{
         "type": "shell",
-        "inline": [
-            "sudo apt-get update && sudo apt-get install -y python3",
-            "sudo apt-get install -y python3-dev python3-pip",
-            "sudo pip3 install 'ansible==2.10.4'"
-        ]
+        "script": "./scripts/install-ansible"
     },
     {
         "type": "ansible-local",
-        "command": "ANSIBLE_FORCE_COLOR=1 PYTHONUNBUFFERED=1 ANSIBLE_VAULT_PASSWORD='{{user `ansible_vault_password`}}' ansible-playbook",
+        "command": "PYTHONUNBUFFERED=1 ANSIBLE_VAULT_PASSWORD='{{user `ansible_vault_password`}}' ansible-playbook",
         "playbook_file": "./build_webdavis-server.yml",
         "playbook_dir": "./",
         "extra_arguments": [
@@ -59,13 +55,8 @@
 
     },
     {
-        "type": "shell-local",
-        "inline": [
-            "sudo apt-get remove -y ansible",
-            "sudo apt-get remove -y python3-dev python3-pip",
-            "sudo apt-get autoremove -y",
-            "sudo apt-get autoclean"
-        ]
+        "type": "shell",
+        "script": "./scripts/remove-ansible"
     }],
     "post-processors": [{
         "only": ["webdavis-server"],

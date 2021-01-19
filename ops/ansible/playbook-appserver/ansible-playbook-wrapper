@@ -49,7 +49,7 @@ if [[ $error_code -eq 0 ]]; then
   echo -e "\n"
 fi
 
-exec >&1
+exec > /dev/tty
 
 timestamp_log
 exit $error_code
