@@ -1,0 +1,16 @@
+---
+
+- name: Create the workspaces Directories
+  ansible.builtin.file:
+    state: directory
+    path:  "/home/{{ account.localadmin.username }}/{{ item }}"
+    owner: "{{ account.localadmin.username }}"
+    group: "{{ account.localadmin.username }}"
+  loop:
+    - workspaces
+    - workspaces/tools
+    - workspaces/installers
+    - workspaces/webdavis
+    - workspaces/webdavis/projects
+  become: yes
+

@@ -1,4 +1,0 @@
----
-
-- import_tasks: get_image.yml
-- import_tasks: mount_image.yml
