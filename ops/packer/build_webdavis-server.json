@@ -34,7 +34,10 @@
             "mountpoint": "/"
         }
         ],
-        "image_chroot_env": ["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.local/bin"],
+        "image_chroot_env": [
+            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.local/bin",
+            "ANSIBLE_VAULT_PASSWORD='{{user `ansible_vault_password`}}'"
+        ],
         "qemu_binary_source_path": "/usr/bin/qemu-arm-static",
         "qemu_binary_destination_path": "/usr/bin/qemu-arm-static"
     }],
@@ -44,15 +47,12 @@
     },
     {
         "type": "ansible-local",
-        "command": "PYTHONUNBUFFERED=1 ANSIBLE_VAULT_PASSWORD='{{user `ansible_vault_password`}}' ansible-playbook",
+        "command": "PYTHONUNBUFFERED=1 ansible-playbook",
         "playbook_file": "./build_webdavis-server.yml",
         "playbook_dir": "./",
         "extra_arguments": [
-            "-e ansible_python-interpreter=/usr/bin/python3",
-            "--limit=localhost",
-            "--vault-password-file vault.password.py"
-	]
-
+            "--limit=localhost"
+        ]
     },
     {
         "type": "shell",
