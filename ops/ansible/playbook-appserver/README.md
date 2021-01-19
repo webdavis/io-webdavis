@@ -74,13 +74,27 @@ issues and other breakage.
 
 ### Example command
 
-From within the `ops/ansible/playbook-appserver`, run the following command to kickoff a Packer
-build.
+This repo provides the [`packer-wrapper`](./packer-wrapper) script for executing Packer builds.
+This script makes life easier for the developer in a few ways. It:
+
+- Turns on the Packer logger
+- Validates the Packer build template
+- Passes the Ansible Vault password to the `root` environment
+
+From within the `ops/ansible/playbook-appserver`, first set your Ansible Vault Password as an
+environment variable to `ANSIBLE_VAULT_PASSWORD`:
 
 ```bash
-$ ANSIBLE_VAULT_PASSWORD='<vault-password>' sudo packer build ../../packer/build_webdavis-server.json
+$ export ANSIBLE_VAULT_PASSWORD='<vault-password>'
 ```
-This Packer build will spit out a `webdavis-server-<isotime>.img` file to the
+
+Then kickoff the Packer build by running the wrapper script:
+
+```bash
+$ ./packer-wrapper -var "tag=$(git rev-parse --short HEAD)" ../../packer/build_webdavis-server.pkr.hcl
+```
+
+This Packer build will spit out a `webdavis-server-<tag>.img` file in to the
 `ops/ansible/playbook-appserver` folder.
 
 ## Flashing the Image
@@ -93,5 +107,5 @@ modified image to your MicroSD card:
 $ pv webdavis-server-<isotime>.img | sudo dd bs=19M iflag=fullblock conv=fsync of=/dev/sdb
 ```
 
-> **Attention!** Adjust the `bs` opperand to the max write speed of your MicroSD card, USB 3.0
+> **Attention!** Adjust the `bs` operand to the max write speed of your MicroSD card, USB 3.0
 > device, etc.

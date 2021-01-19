@@ -30,9 +30,9 @@ variable "ansible_vault_password" {
   default = env("ANSIBLE_VAULT_PASSWORD")
 }
 
-variable "isotime" {
+variable "tag" {
   type = string
-  default = formatdate("DD MMM YYYY hh:mm ZZZ", "2018-01-02T23:12:01Z")
+  default = ""
 }
 
 # "timestamp" template function replacement
@@ -68,7 +68,7 @@ source "arm" "webdavis-server" {
     start_sector = "532480"
     type = "83"
   }
-  image_path = "webdavis-server-${var.isotime}.img"
+  image_path = "webdavis-server-${var.tag}.img"
   image_size = "8G"
   image_type = "dos"
   qemu_binary_destination_path = "/usr/bin/qemu-arm-static"
