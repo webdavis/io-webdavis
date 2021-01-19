@@ -104,7 +104,7 @@ locate the block device using `lsblk`. Then run the following command to flash t
 modified image to your MicroSD card:
 
 ```bash
-$ pv webdavis-server-<isotime>.img | sudo dd bs=19M iflag=fullblock conv=fsync of=/dev/sdb
+$ pv webdavis-server-<tag>.img | sudo dd bs=19M iflag=fullblock conv=fsync of=/dev/sdb
 ```
 
 > **Attention!** Adjust the `bs` operand to the max write speed of your MicroSD card, USB 3.0
