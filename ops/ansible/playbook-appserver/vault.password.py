@@ -2,4 +2,4 @@
 
 import os
 
-print os.environ['ANSIBLE_VAULT_PASSWORD']
+print(os.environ.get('ANSIBLE_VAULT_PASSWORD'))
