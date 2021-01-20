@@ -22,7 +22,7 @@ account:
       public: "{{ vault_account.root.ssh_key.public }}"
       private: "{{ vault_account.root.ssh_key.private }}"
   localadmin:
-    username: stephen
+    username: localadmin
     password: "{{ vault_account.localadmin.password }}"
     description: Local Admin
     uid_and_gid_number: 1001
