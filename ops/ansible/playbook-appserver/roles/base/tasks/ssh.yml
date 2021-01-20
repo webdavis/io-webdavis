@@ -25,8 +25,8 @@
   become: yes
 
 - name: Create SSH Deamon Config File
-  ansible.builtin.template:
-    src: sshd_config.j2
+  ansible.builtin.copy:
+    src: sshd_config
     dest: /etc/ssh/sshd_config
     owner: root
     group: root
