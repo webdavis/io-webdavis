@@ -13,20 +13,21 @@ I'm just using this document as an idea playground.
 | 5  | Fastapi   | Python   | 25.7         | https://github.com/tiangolo/fastapi      |
 | 6  | Tornado   | Python   | 19.7         | https://github.com/tornadoweb/tornado    |
 | 7  | Echo      | Go       | 18.9         | https://github.com/labstack/echo         |
-| 8  | Dash      | Python   | 13.7         | https://github.com/plotly/dash           |
-| 9  | Fiber     | Go       | 11.1         | https://github.com/gofiber/fiber         |
-| 10 | Falcon    | Python   |  8.2         | https://github.com/falconry/falcon       |
-| 11 | GoFrame   | Go       |  4.6         | https://github.com/gogf/gf               |
+| 8  | Yew       | Rust     | 14.8         | https://github.com/yewstack/yew          |
+| 9  | Dash      | Python   | 13.7         | https://github.com/plotly/dash           |
+| 10 | Fiber     | Go       | 11.1         | https://github.com/gofiber/fiber         |
 
 ## Web Frameworks - Honorable Mentions
 
 | ID | Framework   | Language | GitHub Stars | GitHub URL                               |
 |:---|-------------|----------|--------------|------------------------------------------|
-| 1  | hug         | Python   |  6.4         | https://github.com/hugapi/hug            |
-| 2  | Swagger 2.0 | Go       |  6.0         | https://github.com/go-swagger/go-swagger |
-| 3  | Pyramid     | Python   |  3.5         | https://github.com/Pylons/pyramid        |
-| 4  | Goyave      | Go       |  774         | https://github.com/System-Glitch/goyave  |
-| 5  | Gearbox     | Go       |  408         | https://github.com/gogearbox/gearbox     |
+| 1  | Falcon      | Python   |  8.2         | https://github.com/falconry/falcon       |
+| 2  | hug         | Python   |  6.4         | https://github.com/hugapi/hug            |
+| 3  | Swagger 2.0 | Go       |  6.0         | https://github.com/go-swagger/go-swagger |
+| 4  | GoFrame     | Go       |  4.6         | https://github.com/gogf/gf               |
+| 5  | Pyramid     | Python   |  3.5         | https://github.com/Pylons/pyramid        |
+| 6  | Goyave      | Go       |  774         | https://github.com/System-Glitch/goyave  |
+| 7  | Gearbox     | Go       |  408         | https://github.com/gogearbox/gearbox     |
 
 ## Microservice Frameworks
 
