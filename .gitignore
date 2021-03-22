@@ -1,3 +1,13 @@
+# Ignore secrets JSON file.
+secrets.json
+
+# Ignore Databases.
+*.sqlite3
+
+# Ignore Byte-compiled Python code.
+__pycache__/
+*.py[cod]
+
 # Ignore the Python virtual environment.
 .venv/
 
