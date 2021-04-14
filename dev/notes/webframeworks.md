@@ -7,15 +7,16 @@ I'm just using this document as an idea playground.
 | ID | Framework | Language | GitHub Stars | GitHub URL                               |
 |:---|-----------|----------|--------------|------------------------------------------|
 | 1  | Django    | Python   | 54.9         | https://github.com/django/django         |
-| 2  | Flask     | Python   | 53.5         | https://github.com/pallets/flask         |
-| 3  | Gin       | Go       | 44.8         | https://github.com/gin-gonic/gin         |
-| 4  | Beego     | Go       | 25.7         | https://github.com/beego/beego           |
-| 5  | Fastapi   | Python   | 25.7         | https://github.com/tiangolo/fastapi      |
-| 6  | Tornado   | Python   | 19.7         | https://github.com/tornadoweb/tornado    |
-| 7  | Echo      | Go       | 18.9         | https://github.com/labstack/echo         |
-| 8  | Yew       | Rust     | 14.8         | https://github.com/yewstack/yew          |
-| 9  | Dash      | Python   | 13.7         | https://github.com/plotly/dash           |
-| 10 | Fiber     | Go       | 11.1         | https://github.com/gofiber/fiber         |
+| 2  | Cask      | Scala    |  332         | https://github.com/com-lihaoyi/cask      |
+| 3  | Yew       | Rust     | 14.8         | https://github.com/yewstack/yew          |
+| 4  | Flask     | Python   | 53.5         | https://github.com/pallets/flask         |
+| 5  | Gin       | Go       | 44.8         | https://github.com/gin-gonic/gin         |
+| 6  | Beego     | Go       | 25.7         | https://github.com/beego/beego           |
+| 7  | Fastapi   | Python   | 25.7         | https://github.com/tiangolo/fastapi      |
+| 8  | Tornado   | Python   | 19.7         | https://github.com/tornadoweb/tornado    |
+| 9  | Echo      | Go       | 18.9         | https://github.com/labstack/echo         |
+| 11 | Dash      | Python   | 13.7         | https://github.com/plotly/dash           |
+| 12 | Fiber     | Go       | 11.1         | https://github.com/gofiber/fiber         |
 
 ## Web Frameworks - Honorable Mentions
 
@@ -49,4 +50,4 @@ as an electronic bookmark for my thoughts.
 | 4  | Tornado   | Community chat using socket.io                                          |
 | 5  | Sanic     | Community chat using socket.io                                          |
 | 7  | Falcon    | Community chat using socket.io                                          |
-| 6  | Dash      | Display pretty visualizations of benchmarks for each framework          | 
+| 6  | Dash      | Display pretty visualizations of benchmarks for each framework          |
